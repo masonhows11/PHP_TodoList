@@ -2,8 +2,8 @@
 <html lang="en" >
 <head>
     <meta charset="UTF-8">
-    <title></title>
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <title><?=  SITE_TITLE ?></title>
+    <link rel="stylesheet" href="<?= BASE_URL ?>/assets/css/style.css">
 
 </head>
 <body>
