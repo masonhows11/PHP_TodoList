@@ -1,0 +1,16 @@
+{
+    "name": "mason/php_todo-list",
+    "description": "A Simple Todo List (With Ajax,Php and Mysql)",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "mason.hows11",
+            "email": "mason.hows11@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "hekmatinasser/verta": "^8.3"
+    }
+}
