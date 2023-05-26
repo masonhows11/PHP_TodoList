@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 26, 2023 at 05:08 PM
+-- Generation Time: May 26, 2023 at 06:22 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -101,7 +101,9 @@ ALTER TABLE `folders`
 -- Indexes for table `tasks`
 --
 ALTER TABLE `tasks`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `uid_fk_task` (`user_id`),
+  ADD KEY `fid_fk_task` (`folder_id`);
 
 --
 -- Indexes for table `users`
@@ -140,6 +142,13 @@ ALTER TABLE `users`
 --
 ALTER TABLE `folders`
   ADD CONSTRAINT `uid_fk` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
+-- Constraints for table `tasks`
+--
+ALTER TABLE `tasks`
+  ADD CONSTRAINT `fid_fk_task` FOREIGN KEY (`folder_id`) REFERENCES `folders` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT,
+  ADD CONSTRAINT `uid_fk_task` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
