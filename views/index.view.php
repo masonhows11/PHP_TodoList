@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title><?=  SITE_TITLE ?></title>
     <link rel="stylesheet" href="<?= BASE_URL ?>/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>/assets/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>/assets/css/style.css">
 
 </head>
@@ -86,6 +87,8 @@
 <script  src="<?= BASE_URL ?>/assets/js/script.js"></script>
 <script>
     $(document).ready(function(){
+
+
 
         // $('.isDone').click(function(e){
         //     var tid = $(this).attr('data-taskId');
