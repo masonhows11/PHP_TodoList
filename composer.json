@@ -11,6 +11,7 @@
     ],
     "minimum-stability": "stable",
     "require": {
-        "hekmatinasser/verta": "^8.3"
+        "hekmatinasser/verta": "^8.3",
+      "ext-pdo": "*"
     }
 }
