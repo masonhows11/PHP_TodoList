@@ -2,6 +2,7 @@
 
 include "constants.php";
 include "config.php";
+include "libraries/helpers.php";
 // for use all packages in vendor composer system we should include
 // autoload.php file in init.php file
 include "vendor/autoload.php";
@@ -15,7 +16,7 @@ try {
 }
 
 
-include "libraries/helpers.php";
+
 include "libraries/lib-auth.php";
 include "libraries/lib-tasks.php";
 
