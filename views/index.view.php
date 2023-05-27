@@ -44,7 +44,7 @@
                     </div>
 
                     <div class="mb-3 mt-3">
-                        <button type="button" class="btn btn-success btn-sm">Add Folder</button>
+                        <button type="button" id="addFolderBtn" class="btn btn-success btn-sm">Add Folder</button>
                     </div>
 
                 </div>
@@ -87,52 +87,52 @@
 <script>
     $(document).ready(function(){
 
-        $('.isDone').click(function(e){
-            var tid = $(this).attr('data-taskId');
-            $.ajax({
-                url : "process/ajaxHandler.php",
-                method : "post",
-                data : {action: "doneSwitch",taskId : tid},
-                success : function(response){
-                    location.reload();
-                }
-            });
-        });
+        // $('.isDone').click(function(e){
+        //     var tid = $(this).attr('data-taskId');
+        //     $.ajax({
+        //         url : "process/ajaxHandler.php",
+        //         method : "post",
+        //         data : {action: "doneSwitch",taskId : tid},
+        //         success : function(response){
+        //             location.reload();
+        //         }
+        //     });
+        // });
 
-        $('#addFolderBtn').click(function(e){
-            var input = $('input#addFolderInput');
-            $.ajax({
-                url : "process/ajaxHandler.php",
-                method : "post",
-                data : {action: "addFolder",folderName: input.val()},
-                success : function(response){
-                    if(response == '1'){
-                        $('<li> <a href="#"><i class="fa fa-folder"></i>'+input.val()+'</a></li>').appendTo('ul.folder-list');
-                    }else{
-                        alert(response);
-                    }
-                }
-            });
-        });
+        // $('#addFolderBtn').click(function(e){
+        //     var input = $('input#addFolderInput');
+        //     $.ajax({
+        //         url : "process/ajaxHandler.php",
+        //         method : "post",
+        //         data : {action: "addFolder",folderName: input.val()},
+        //         success : function(response){
+        //             if(response == '1'){
+        //                 $('<li> <a href="#"><i class="fa fa-folder"></i>'+input.val()+'</a></li>').appendTo('ul.folder-list');
+        //             }else{
+        //                 alert(response);
+        //             }
+        //         }
+        //     });
+        // });
 
-        $('#taskNameInput').on('keypress',function(e) {
-            e.stopPropagation();
-            if(e.which == 13) {
-                $.ajax({
-                    url : "process/ajaxHandler.php",
-                    method : "post",
-                    data : {action: "addTask",folderId : <?= $_GET['folder_id'] ?? 0 ?> ,taskTitle: $('#taskNameInput').val()},
-                    success : function(response){
-                        if(response == '1'){
-                            location.reload();
-                        }else{
-                            alert(response);
-                        }
-                    }
-                });
-            }
-        });
-        $('#taskNameInput').focus();
+        //$('#taskNameInput').on('keypress',function(e) {
+        //    e.stopPropagation();
+        //    if(e.which == 13) {
+        //        $.ajax({
+        //            url : "process/ajaxHandler.php",
+        //            method : "post",
+        //            data : {action: "addTask",folderId : <?//= $_GET['folder_id'] ?? 0 ?>// ,taskTitle: $('#taskNameInput').val()},
+        //            success : function(response){
+        //                if(response == '1'){
+        //                    location.reload();
+        //                }else{
+        //                    alert(response);
+        //                }
+        //            }
+        //        });
+        //    }
+        //});
+        //$('#taskNameInput').focus();
     });
 
 </script>
