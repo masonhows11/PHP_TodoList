@@ -21,3 +21,10 @@ body{
 .todolist-body{
     height:700px;
 }
+.list-group-item{
+    cursor: pointer;
+}
+.list-group-item:hover {
+    background-color: #badce3;
+    color: white;
+}
