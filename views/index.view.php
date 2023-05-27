@@ -36,6 +36,12 @@
                         FOLDERS
                     </div>
 
+                    <div class="mb-3 mt-3">
+                        <ul class="list-group">
+                            <li class="list-group-item px-2"><i class="fa fa-folder px-2"></i>Folder</li>
+                        </ul>
+                    </div>
+
                     <div class="mb-3 mt-3 px-2">
                         ALL
                     </div>
