@@ -1,11 +1,11 @@
 <?php
 
 include "constants.php";
-include BASE_PATH . "bootstrap/config.php";
+include BASE_PATH . "/bootstrap/config.php";
 // for use all packages in vendor composer system we should include
 // autoload.php file in init.php file
-include BASE_PATH . "vendor/autoload.php";
-include BASE_PATH . "libraries/helpers.php";
+include BASE_PATH . "/vendor/autoload.php";
+include BASE_PATH . "/libraries/helpers.php";
 // mysql pdo connection
 try {
     $pdo = new PDO("mysql:dbname=$database_config->db;host={$database_config->host}", $database_config->user, $database_config->pass);
@@ -16,6 +16,6 @@ try {
 }
 
 
-include BASE_PATH . "libraries/lib-auth.php";
-include BASE_PATH . "libraries/lib-tasks.php";
+include BASE_PATH . "/libraries/lib-auth.php";
+include BASE_PATH . "/libraries/lib-tasks.php";
 
