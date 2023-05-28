@@ -53,7 +53,7 @@
                     </div>
 
                     <div class="mb-3 mt-3">
-                        <input type="text" class="form-control" id="addFolderInput" placeholder="Add New Folder">
+                        <input type="text" id="addFolderInput" class="form-control"  placeholder="Add New Folder">
                     </div>
 
                     <div class="mb-3 mt-3">
@@ -100,6 +100,14 @@
 <script>
     $(document).ready(function(){
 
+
+            // add folder with ajax
+            $('#addFolderBtn').click(function (e) {
+
+                let input = document.getElementById('addFolderInput').value;
+                alert(input);
+
+            });
 
 
         // $('.isDone').click(function(e){
