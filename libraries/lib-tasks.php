@@ -1,21 +1,25 @@
 <?php
 
 // folder functions
-function addFolder($folder){
-
+function addFolder($folder)
+{
+    global $pdo;
+    $current_user_id = getCurrentUserId();
+    $sql = "insert into folders (name,user_id) VALUES (:folder_name,:user_id);";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([':folder_name'=>$folder,':user_id' => $current_user_id]);
+    return $stmt->rowCount();
 }
 
 function deleteFolder($folder_id)
 {
-
     global $pdo;
-
     $sql = "delete  from folders where id = $folder_id";
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
     return $stmt->rowCount();
-
 }
+
 function getFolders()
 {
     global $pdo;
