@@ -22,4 +22,3 @@ switch ($_POST['action']) {
         diePage("Invalid Action !");
 }
 
-var_dump($_POST);
