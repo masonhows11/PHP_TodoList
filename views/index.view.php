@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title><?=  SITE_TITLE ?></title>
+    <title><?= SITE_TITLE ?></title>
     <link rel="stylesheet" href="<?= BASE_URL ?>/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>/assets/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>/assets/css/style.css">
@@ -39,10 +39,12 @@
                     <div class="mb-3 mt-3">
                         <ul class="list-group">
                             <?php foreach ($folders as $folder): ?>
-                            <li class="list-group-item px-2">
-                                <a href="?folder_id=<?php echo $folder->id ?>"><i class="fa fa-folder px-2"></i><?= $folder->name ?></a>
-                                <a class="remove" href="?delete_folder=<?php echo $folder->id ?>"><i class="fa fa-trash  px-2"></i>remove</a>
-                           </li>
+                                <li class="list-group-item px-2">
+                                    <a href="?folder_id=<?php echo $folder->id ?>"><i
+                                                class="fa fa-folder px-2"></i><?= $folder->name ?></a>
+                                    <a class="remove" href="?delete_folder=<?php echo $folder->id ?>"><i
+                                                class="fa fa-trash  px-2"></i>remove</a>
+                                </li>
                             <?php endforeach; ?>
 
                         </ul>
@@ -53,7 +55,7 @@
                     </div>
 
                     <div class="mb-3 mt-3">
-                        <input type="text" id="addFolderInput" class="form-control"  placeholder="Add New Folder">
+                        <input type="text" id="addFolderInput" class="form-control" placeholder="Add New Folder">
                     </div>
 
                     <div class="mb-3 mt-3">
@@ -96,18 +98,25 @@
 <!-- partial -->
 <script src='<?= BASE_URL ?>/assets/js/jquery-3.5.1.min.js'></script>
 <script src='<?= BASE_URL ?>/assets/js/bootstrap.bundle.min.js'></script>
-<script  src="<?= BASE_URL ?>/assets/js/script.js"></script>
+<script src="<?= BASE_URL ?>/assets/js/script.js"></script>
 <script>
-    $(document).ready(function(){
+    $(document).ready(function () {
 
 
-            // add folder with ajax
-            $('#addFolderBtn').click(function (e) {
+        // add folder with ajax
+        $('#addFolderBtn').click(function (e) {
 
-                let input = document.getElementById('addFolderInput').value;
-                alert(input);
+            let input = document.getElementById('addFolderInput').value;
+            $.ajax({
+                url: "controllers/controller.php",
+                method: "post",
+                data: {action: "addFolder", folderName: input},
+                success: function (response) {
+                    alert(response);
+                }
 
             });
+        });
 
 
         // $('.isDone').click(function(e){
