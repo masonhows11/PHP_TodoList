@@ -39,9 +39,12 @@
                     <div class="mb-3 mt-3">
                         <ul class="list-group">
                             <?php foreach ($folders as $folder): ?>
-                            <li class="list-group-item px-2"><i class="fa fa-folder px-2"></i><?= $folder->name ?></li>
+                            <li class="list-group-item px-2">
+                                <a href="?folder_id=<?php echo $folder->id ?>"><i class="fa fa-folder px-2"></i><?= $folder->name ?></a>
+                                <a class="remove" href="?delete_folder=<?php echo $folder->id ?>"><i class="fa fa-trash  px-2"></i>remove</a>
+                           </li>
                             <?php endforeach; ?>
-                           
+
                         </ul>
                     </div>
 

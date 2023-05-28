@@ -21,6 +21,16 @@ body{
 .todolist-body{
     height:700px;
 }
+.list-group-item  a{
+    text-decoration: none;
+    color: darkgrey;
+}
+.list-group-item .fa-trash{
+    color:orangered;
+}
+.list-group-item .remove:hover{
+    font-weight: bolder;
+}
 .list-group-item{
     cursor: pointer;
 }
