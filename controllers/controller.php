@@ -13,7 +13,11 @@ if (!isset($_POST['action']) || empty($_POST['action'])) {
 switch ($_POST['action']) {
 
     case "addFolder":
-       echo addFolder($_POST['folderName']);
+        if(!isset($_POST['folderName']) || strlen($_POST['folderName']) < 3){
+            echo "Folder name must be greater than 2 chars.";
+             die();
+        }
+        echo addFolder($_POST['folderName']);
         break;
     case "addTask":
 

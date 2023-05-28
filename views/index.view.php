@@ -37,16 +37,13 @@
                     </div>
 
                     <div class="mb-3 mt-3">
-                        <ul class="list-group">
+                        <ul class="list-group folder-list">
                             <?php foreach ($folders as $folder): ?>
                                 <li class="list-group-item px-2">
-                                    <a href="?folder_id=<?php echo $folder->id ?>"><i
-                                                class="fa fa-folder px-2"></i><?= $folder->name ?></a>
-                                    <a class="remove" href="?delete_folder=<?php echo $folder->id ?>"><i
-                                                class="fa fa-trash  px-2"></i>remove</a>
+                                    <a href="?folder_id=<?php echo $folder->id ?>"><i class="fa fa-folder px-2"></i><?= $folder->name ?></a>
+                                    <a class="remove" href="?delete_folder=<?php echo $folder->id ?>"><i class="fa fa-trash  px-2"></i>remove</a>
                                 </li>
                             <?php endforeach; ?>
-
                         </ul>
                     </div>
 
@@ -112,7 +109,14 @@
                 method: "post",
                 data: {action: "addFolder", folderName: input},
                 success: function (response) {
-                    alert(response);
+
+                    if (response == '1') {
+
+                        $('.folder-list').append('<li class="list-group-item px-2"> <a href="?folder_id=14"><i class="fa fa-folder px-2"></i>'+ input +'</a> <a class="remove" href="?delete_folder=14"><i class="fa fa-trash  px-2"></i>remove</a> </li>');
+                    } else {
+                        alert(response);
+                    }
+
                 }
 
             });
