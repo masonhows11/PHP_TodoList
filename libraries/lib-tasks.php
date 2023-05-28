@@ -1,14 +1,12 @@
 <?php
 
-function getCurrentUserId(){
-
-    return 1;
-}
-function addFolder($data){
+// folder functions
+function addFolder($folder){
 
 }
 
-function deleteFolder($folder_id){
+function deleteFolder($folder_id)
+{
 
     global $pdo;
 
@@ -30,7 +28,14 @@ function getFolders()
     return $records;
 }
 
+// task functions
 
+function deleteTask($task_id){
+
+}
+function addTask($task){
+
+}
 function getTasks(){
 
 }
