@@ -38,8 +38,10 @@
 
                     <div class="mb-3 mt-3">
                         <ul class="list-group">
-                            <li class="list-group-item px-2"><i class="fa fa-folder px-2"></i>Folder</li>
-                            <li class="list-group-item px-2 active current-folder"><i class="fa fa-folder px-2"></i>Folder</li>
+                            <?php foreach ($folders as $folder): ?>
+                            <li class="list-group-item px-2"><i class="fa fa-folder px-2"></i><?= $folder->name ?></li>
+                            <?php endforeach; ?>
+                           
                         </ul>
                     </div>
 
