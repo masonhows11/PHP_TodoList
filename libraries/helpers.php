@@ -14,6 +14,11 @@ function diePage($msg)
     die();
 }
 
+function dd($msg){
+    echo "<pre style='color:#9c4100;background: #ffffff;z-index: 999;position:relative;padding: 10px;margin: 10px;border-radius: 5px'>";
+    var_dump($msg);
+    echo "</pre>";
+}
 function isAjaxRequest()
 {
     if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {

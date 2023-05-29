@@ -34,18 +34,36 @@ function getFolders()
 }
 
 // task functions
-
-function deleteTask($task_id)
+function getTasks()
 {
-
+    global $pdo;
+    $current_user_id = getCurrentUserId();
+    $sql = "select * from tasks where user_id = $current_user_id";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute();
+    // get all tasks records as object type
+    $records = $stmt->fetchAll(PDO::FETCH_OBJ);
+    return $records;
 }
 
 function addTask($task)
 {
-
+    global $pdo;
+    $current_user_id = getCurrentUserId();
+    $sql = "insert into tasks (name,user_id) VALUES (:task_name,:user_id);";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([':task_name' => $task, ':user_id' => $current_user_id]);
+    return $stmt->rowCount();
 }
 
-function getTasks()
+function deleteTask($task_id)
 {
-
+    global $pdo;
+    $sql = "delete  from tasks where id = $task_id";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute();
+    return $stmt->rowCount();
 }
+
+
+
