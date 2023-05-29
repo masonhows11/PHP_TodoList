@@ -1,4 +1,5 @@
 <?php
+defined('BASE_PATH') OR die("Permission Denied!");
 
 // folder functions
 function addFolder($folder)
@@ -7,7 +8,7 @@ function addFolder($folder)
     $current_user_id = getCurrentUserId();
     $sql = "insert into folders (name,user_id) VALUES (:folder_name,:user_id);";
     $stmt = $pdo->prepare($sql);
-    $stmt->execute([':folder_name'=>$folder,':user_id' => $current_user_id]);
+    $stmt->execute([':folder_name' => $folder, ':user_id' => $current_user_id]);
     return $stmt->rowCount();
 }
 
@@ -34,12 +35,17 @@ function getFolders()
 
 // task functions
 
-function deleteTask($task_id){
+function deleteTask($task_id)
+{
 
 }
-function addTask($task){
+
+function addTask($task)
+{
 
 }
-function getTasks(){
+
+function getTasks()
+{
 
 }
