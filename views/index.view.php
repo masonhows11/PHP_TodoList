@@ -41,7 +41,7 @@
                             <?php foreach ($folders as $folder): ?>
                                 <li class="list-group-item px-2">
                                     <a href="?folder_id=<?php echo $folder->id ?>"><i class="fa fa-folder px-2"></i><?= $folder->name ?></a>
-                                    <a class="remove" href="?delete_folder=<?php echo $folder->id ?>"><i class="fa fa-trash  px-2"></i>remove</a>
+                                    <a class="remove" href="?delete_folder=<?php echo $folder->id ?>"><i class="fa fa-trash  px-2"></i></a>
                                 </li>
                             <?php endforeach; ?>
                         </ul>
