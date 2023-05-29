@@ -40,8 +40,10 @@
                         <ul class="list-group folder-list">
                             <?php foreach ($folders as $folder): ?>
                                 <li class="list-group-item px-2">
-                                    <a href="?folder_id=<?php echo $folder->id ?>"><i class="fa fa-folder px-2"></i><?= $folder->name ?></a>
-                                    <a class="remove" href="?delete_folder=<?php echo $folder->id ?>"><i class="fa fa-trash  px-2"></i></a>
+                                    <a href="?folder_id=<?php echo $folder->id ?>"><i
+                                                class="fa fa-folder px-2"></i><?= $folder->name ?></a>
+                                    <a class="remove" href="?delete_folder=<?php echo $folder->id ?>"><i
+                                                class="fa fa-trash  px-2"></i></a>
                                 </li>
                             <?php endforeach; ?>
                         </ul>
@@ -61,16 +63,13 @@
 
                 </div>
 
-                <div class="right-main col-lg-10 bg-white">
+                <div class="right-main col-lg-10 bg-white d-flex flex-column">
 
                     <div class="main-header  border-bottom p-4 d-flex justify-content-between">
-
                         <div class="main-title">
                             <h3 class=" text-secondary">Manage Tasks</h3>
                         </div>
-
                         <div class="main-header-op d-flex flex-row ">
-
                             <div>
                                 <button id="trash" class="btn btn-danger btn-sm mx-2">Trash</button>
                             </div>
@@ -80,8 +79,35 @@
                             <div>
                                 <button id="addNewTask" class="btn btn-info btn-sm mx-2">Add New Task</button>
                             </div>
+                        </div>
+                    </div>
+
+                    <div class="task-content row mt-5">
+                        <div class="col-lg-12">
+                            <ul class="list-group">
+
+                                <li class="list-group-item d-flex justify-content-between">
+                                   <div>
+                                       <i class="fa-regular fa-square-check fa-lg"></i>
+                                       <span>do home work</span>
+                                   </div>
+                                    <div class="info">
+                                        <span>Created At Date-here</span>
+                                    </div>
+                                </li>
+
+                                <li class="list-group-item d-flex justify-content-between">
+                                    <div>
+                                        <i class="fa-regular fa-square fa-lg"></i>
+                                        <span>go shopping</span>
+                                    </div>
+                                    <div class="info">
+                                        <span>Created At Date-here</span>
+                                    </div>
+                                </li>
 
 
+                            </ul>
                         </div>
 
                     </div>
@@ -112,7 +138,7 @@
 
                     if (response == '1') {
 
-                        $('.folder-list').append('<li class="list-group-item px-2"> <a href="?folder_id=14"><i class="fa fa-folder px-2"></i>'+ input +'</a> <a class="remove" href="?delete_folder=14"><i class="fa fa-trash  px-2"></i>remove</a> </li>');
+                        $('.folder-list').append('<li class="list-group-item px-2"> <a href="?folder_id=14"><i class="fa fa-folder px-2"></i>' + input + '</a> <a class="remove" href="?delete_folder=14"><i class="fa fa-trash  px-2"></i>remove</a> </li>');
                     } else {
                         alert(response);
                     }
