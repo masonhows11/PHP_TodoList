@@ -38,21 +38,24 @@
 
                     <div class="mb-3 mt-3">
                         <ul class="list-group folder-list">
+                            <!--   this line ok   -->
                             <li class="list-group-item px-2 <?= isset($_GET['folder_id']) ? '' : 'active' ?>"><i
                                         class="fa fa-folder px-2"></i>All</a></li>
 
                             <?php foreach ($folders as $folder): ?>
 
-                                <li class="<?= ($_GET['folder_id'] == $folder->id) ? 'active' : '' ?> list-group-item px-2">
-                                    <a href="?folder_id=<?= $folder->id ?>"><i
-                                                class="fa fa-folder px-2"></i><?= $folder->name ?></a>
+
+                                <li class="<?= isset($_GET['folder_id'])  ? (($_GET['folder_id'] == $folder->id) ? 'active' : '' ) : ''  ?> list-group-item px-2">
+
+                                    <a href="?folder_id=<?= $folder->id ?>"><i class="fa fa-folder px-2"></i><?= $folder->name ?></a>
+
                                     <a class="remove"
                                        onclick="return confirm('Are you sure to delete this item\n <?= $folder->name ?>')"
                                        href="?delete_folder=<?php echo $folder->id ?>">
                                         <i class="fa fa-trash  px-2"></i>
                                     </a>
                                 </li>
-                              
+
                             <?php endforeach; ?>
                         </ul>
                     </div>
