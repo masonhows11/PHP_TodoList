@@ -67,18 +67,15 @@
 
                 <div class="right-main col-lg-10 bg-white d-flex flex-column">
 
-                    <div class="main-header  border-bottom p-4 d-flex justify-content-between">
-                        <div class="main-title">
+                    <div class="main-header  border-bottom p-4 row">
 
+                        <div class="main-title col-lg-6">
                             <div class="mb-3 mt-3">
                                 <input type="text" id="addTaskInput" class="form-control" placeholder="Add New Task">
                             </div>
-                            <div class="mb-3 mt-3">
-                                <button type="button" id="addTaskBtn" class="btn btn-success btn-sm">Add Task</button>
-                            </div>
-                            
                         </div>
-                        <div class="main-header-op d-flex flex-row ">
+
+                        <div class="main-header-op d-flex justify-content-end align-items-center col-lg-6">
                             <div>
                                 <button id="completed" class="btn btn-secondary btn-sm mx-2">Completed</button>
                             </div>
@@ -86,6 +83,7 @@
                                 <button id="addNewTask" class="btn btn-info btn-sm mx-2">Add New Task</button>
                             </div>
                         </div>
+
                     </div>
 
                     <div class="task-content row mt-5">
