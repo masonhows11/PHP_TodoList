@@ -143,23 +143,18 @@
 
         // add folder with ajax
         $('#addFolderBtn').click(function (e) {
-
             let input = document.getElementById('addFolderInput').value;
             $.ajax({
                 url: "controllers/controller.php",
                 method: "post",
                 data: {action: "addFolder", folderName: input},
                 success: function (response) {
-
                     if (response == '1') {
-
                         $('.folder-list').append('<li class="list-group-item px-2"> <a href="?folder_id=14"><i class="fa fa-folder px-2"></i>' + input + '</a> <a class="remove" href="?delete_folder=14"><i class="fa fa-trash  px-2"></i>remove</a> </li>');
                     } else {
                         alert(response);
                     }
-
                 }
-
             });
         });
 
@@ -170,25 +165,23 @@
                 $.ajax({
                     url: "controllers/controller.php",
                     method: "post",
-                    data: {action: "addTask", taskName: input},
+                    data: {
+                        action: "addTask",
+                        folderId: ' <?= isset($_GET['folder_id']) ? $_GET['folder_id'] : '' ?> ',
+                        taskName: input
+                    },
                     success: function (response) {
-
                         if (response == '1') {
-
-
-                            $('.task-list').append('');
+                            location.reload();
                             document.getElementById('addTaskInput').value = '';
                         } else {
                             alert(response);
                         }
-
                     }
-
                 });
             }
-
         });
-
+        $('#addTaskInput').focus();
 
     });
 

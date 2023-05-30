@@ -20,11 +20,18 @@ switch ($_POST['action']) {
         echo addFolder($_POST['folderName']);
         break;
     case "addTask":
-        if (!isset($_POST['taskName']) || strlen($_POST['taskName']) < 10) {
-            echo "Task name must be greater than 10 chars.";
+        $taskName = $_POST['taskName'];
+        $folderId = $_POST['folderId'];
+
+        if (!isset($folderId) || empty($folderId)) {
+            echo "please select folder !";
             die();
         }
-        echo addTask($_POST['taskName']);
+        if (!isset($taskName) || strlen($taskName) < 10) {
+            echo "Task name must be greater than 2 chars.";
+            die();
+        }
+        echo addTask($taskName, $folderId);
         break;
     default:
         diePage("Invalid Action !");

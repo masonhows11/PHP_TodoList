@@ -51,11 +51,10 @@ function getTasks()
     return $records;
 }
 
-function addTask($task)
+function addTask($task,$folder_id)
 {
     global $pdo;
     $current_user_id = getCurrentUserId();
-    $folder_id = 7;
     $sql = "insert into tasks (title,user_id,folder_id) VALUES (:task_name,:user_id,:folder_id);";
     $stmt = $pdo->prepare($sql);
     $stmt->execute([':task_name' => $task, ':user_id' => $current_user_id , 'folder_id'=>$folder_id]);
