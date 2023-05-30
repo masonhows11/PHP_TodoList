@@ -175,11 +175,7 @@
 
                        if (response == '1') {
 
-                           $('.task-list').append('<li class="list-group-item d-flex justify-content-between"> +' +
-                               ' <div> <i class="fa-regular fa-square fa-lg"></i> <span> +'input'+</span> </div> +' +
-                               ' <div class="info">' +
-                               ' <span> </span> <a class="remove" href="?delete_task=" onclick="return confirm('Are you sure to delete this item?\n task one')">+' +
-                               ' <i class="fa fa-trash  px-2"></i> </a> </div> </li>');
+                           $('.task-list').append('');
 
                        } else {
                            alert(response);

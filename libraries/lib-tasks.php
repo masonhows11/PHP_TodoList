@@ -55,9 +55,10 @@ function addTask($task)
 {
     global $pdo;
     $current_user_id = getCurrentUserId();
-    $sql = "insert into tasks (name,user_id) VALUES (:task_name,:user_id);";
+    $folder_id = 7;
+    $sql = "insert into tasks (title,user_id,folder_id) VALUES (:task_name,:user_id,:folder_id);";
     $stmt = $pdo->prepare($sql);
-    $stmt->execute([':task_name' => $task, ':user_id' => $current_user_id]);
+    $stmt->execute([':task_name' => $task, ':user_id' => $current_user_id , 'folder_id'=>$folder_id]);
     return $stmt->rowCount();
 }
 
