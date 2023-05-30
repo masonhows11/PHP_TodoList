@@ -34,7 +34,7 @@ body{
 .list-group-item{
     cursor: pointer;
 }
-.list-group-item:hover {
+.folder-list .list-group-item:hover {
     background-color: #badce3;
     color: white;
 }

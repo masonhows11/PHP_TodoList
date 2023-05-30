@@ -89,11 +89,7 @@
                                 <?php foreach ($tasks as $task): ?>
                                     <li class="list-group-item d-flex justify-content-between <?= $task->status == 0 ? '' : 'active'; ?>">
                                         <div>
-                                            <?php if ($task->status == 1): ?>
-                                                <i class="fa-regular fa-square-check fa-lg"></i>
-                                            <?php else: ?>
-                                                <i class="fa-regular fa-square fa-lg"></i>
-                                            <?php endif; ?>
+                                            <i class="fa-regular <?= $task->status ? 'fa-square-check fa-lg' : 'fa-square fa-lg'; ?>"></i>
                                             <span><?= $task->title ?></span>
                                         </div>
                                         <div class="info">
@@ -101,7 +97,6 @@
                                         </div>
                                     </li>
                                 <?php endforeach; ?>
-
 
 
                             </ul>
