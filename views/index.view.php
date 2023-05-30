@@ -86,25 +86,22 @@
                         <div class="col-lg-12">
                             <ul class="list-group">
 
-                                <li class="list-group-item d-flex justify-content-between">
-                                   <div>
-                                       <i class="fa-regular fa-square-check fa-lg"></i>
-                                       <span>do home work</span>
-                                   </div>
-                                    <div class="info">
-                                        <span>Created At Date-here</span>
-                                    </div>
-                                </li>
+                                <?php foreach ($tasks as $task): ?>
+                                    <li class="list-group-item d-flex justify-content-between <?= $task->status == 0 ? '' : 'active'; ?>">
+                                        <div>
+                                            <?php if ($task->status == 1): ?>
+                                                <i class="fa-regular fa-square-check fa-lg"></i>
+                                            <?php else: ?>
+                                                <i class="fa-regular fa-square fa-lg"></i>
+                                            <?php endif; ?>
+                                            <span><?= $task->title ?></span>
+                                        </div>
+                                        <div class="info">
+                                            <span><?= $task->created_at ?></span>
+                                        </div>
+                                    </li>
+                                <?php endforeach; ?>
 
-                                <li class="list-group-item d-flex justify-content-between">
-                                    <div>
-                                        <i class="fa-regular fa-square fa-lg"></i>
-                                        <span>go shopping</span>
-                                    </div>
-                                    <div class="info">
-                                        <span>Created At Date-here</span>
-                                    </div>
-                                </li>
 
 
                             </ul>
