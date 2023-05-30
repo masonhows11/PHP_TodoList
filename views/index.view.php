@@ -38,13 +38,21 @@
 
                     <div class="mb-3 mt-3">
                         <ul class="list-group folder-list">
-                            <li class="list-group-item px-2 <?= isset($_GET['folder_id'])  ? 'active' : '' ?>"><i class="fa fa-folder px-2"></i>All</a></li>
+                            <li class="list-group-item px-2 <?= isset($_GET['folder_id']) ? '' : 'active' ?>"><i
+                                        class="fa fa-folder px-2"></i>All</a></li>
+
                             <?php foreach ($folders as $folder): ?>
                                 <li class="<?= ($_GET['folder_id'] == $folder->id) ? 'active' : '' ?> list-group-item px-2">
-                                    <a href="?folder_id=<?php echo $folder->id ?>"><i class="fa fa-folder px-2"></i><?= $folder->name ?></a>
-                                    <a class="remove" onclick="return confirm('Are you sure to delete this item\n <?= $folder->name ?>')" href="?delete_folder=<?php echo $folder->id ?>"><i class="fa fa-trash  px-2"></i></a>
+                                    <a href="?folder_id=<?= $folder->id ?>"><i
+                                                class="fa fa-folder px-2"></i><?= $folder->name ?></a>
+                                    <a class="remove"
+                                       onclick="return confirm('Are you sure to delete this item\n <?= $folder->name ?>')"
+                                       href="?delete_folder=<?php echo $folder->id ?>">
+                                        <i class="fa fa-trash  px-2"></i>
+                                    </a>
                                 </li>
                             <?php endforeach; ?>
+
                         </ul>
                     </div>
 
@@ -84,23 +92,30 @@
                         <div class="col-lg-12">
                             <ul class="list-group">
 
-                                <?php foreach ($tasks as $task): ?>
-                                    <li class="list-group-item d-flex justify-content-between <?= $task->status == 0 ? '' : 'active'; ?>">
-                                        <div>
-                                            <i class="fa-regular <?= $task->status ? 'fa-square-check fa-lg' : 'fa-square fa-lg'; ?>"></i>
-                                            <span><?= $task->title ?></span>
-                                        </div>
-                                        <div class="info">
-                                            <span><?= $task->created_at ?></span>
-                                            <a class="remove"
-                                               href="?delete_task=<?php echo $task->id ?>"
-                                               onclick="return confirm('Are you sure to delete this item?\n <?= $task->title ?>')">
-                                              <i class="fa fa-trash  px-2"></i>
-                                            </a>
-                                        </div>
-                                    </li>
-                                <?php endforeach; ?>
+                                <?php if (sizeof($tasks) > 0): ?>
 
+                                    <?php foreach ($tasks as $task): ?>
+                                        <li class="list-group-item d-flex justify-content-between <?= $task->status == 0 ? '' : 'active'; ?>">
+                                            <div>
+                                                <i class="fa-regular <?= $task->status ? 'fa-square-check fa-lg' : 'fa-square fa-lg'; ?>"></i>
+                                                <span><?= $task->title ?></span>
+                                            </div>
+                                            <div class="info">
+                                                <span><?= $task->created_at ?></span>
+                                                <a class="remove"
+                                                   href="?delete_task=<?php echo $task->id ?>"
+                                                   onclick="return confirm('Are you sure to delete this item?\n <?= $task->title ?>')">
+                                                    <i class="fa fa-trash  px-2"></i>
+                                                </a>
+                                            </div>
+                                        </li>
+                                    <?php endforeach; ?>
+
+                                <?php else: ?>
+                                <li class="list-group-item">
+                                    No task here !
+                                </li>
+                                <?php endif; ?>
 
                             </ul>
                         </div>
