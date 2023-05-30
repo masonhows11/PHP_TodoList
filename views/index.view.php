@@ -69,12 +69,16 @@
 
                     <div class="main-header  border-bottom p-4 d-flex justify-content-between">
                         <div class="main-title">
-                            <h3 class=" text-secondary">Manage Tasks</h3>
+
+                            <div class="mb-3 mt-3">
+                                <input type="text" id="addTaskInput" class="form-control" placeholder="Add New Task">
+                            </div>
+                            <div class="mb-3 mt-3">
+                                <button type="button" id="addTaskBtn" class="btn btn-success btn-sm">Add Task</button>
+                            </div>
+                            
                         </div>
                         <div class="main-header-op d-flex flex-row ">
-                            <div>
-                                <button id="trash" class="btn btn-danger btn-sm mx-2">Trash</button>
-                            </div>
                             <div>
                                 <button id="completed" class="btn btn-secondary btn-sm mx-2">Completed</button>
                             </div>
