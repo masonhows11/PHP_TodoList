@@ -23,7 +23,7 @@ switch ($_POST['action']) {
         $taskName = $_POST['taskName'];
         $folderId = $_POST['folderId'];
 
-        if (!isset($folderId) || empty($folderId)) {
+        if (!isset($folderId) || empty($folderId) || !is_numeric($folderId)) {
             echo "please select folder !";
             die();
         }
