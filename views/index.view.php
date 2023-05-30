@@ -42,6 +42,7 @@
                                         class="fa fa-folder px-2"></i>All</a></li>
 
                             <?php foreach ($folders as $folder): ?>
+
                                 <li class="<?= ($_GET['folder_id'] == $folder->id) ? 'active' : '' ?> list-group-item px-2">
                                     <a href="?folder_id=<?= $folder->id ?>"><i
                                                 class="fa fa-folder px-2"></i><?= $folder->name ?></a>
@@ -51,8 +52,8 @@
                                         <i class="fa fa-trash  px-2"></i>
                                     </a>
                                 </li>
+                              
                             <?php endforeach; ?>
-
                         </ul>
                     </div>
 
@@ -112,9 +113,9 @@
                                     <?php endforeach; ?>
 
                                 <?php else: ?>
-                                <li class="list-group-item">
-                                    No task here !
-                                </li>
+                                    <li class="list-group-item">
+                                        No task here !
+                                    </li>
                                 <?php endif; ?>
 
                             </ul>
