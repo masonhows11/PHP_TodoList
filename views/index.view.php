@@ -164,30 +164,30 @@
         });
 
         // for add taks with ajax
-        $('#addTaskInput').on('keypress',function (e) {
-           if(e.which == 13 ){
-               let input = document.getElementById('addTaskInput').value;
-               $.ajax({
-                   url: "controllers/controller.php",
-                   method: "post",
-                   data: {action: "addTask", taskName: input},
-                   success: function (response) {
+        $('#addTaskInput').on('keypress', function (e) {
+            if (e.which == 13) {
+                let input = document.getElementById('addTaskInput').value;
+                $.ajax({
+                    url: "controllers/controller.php",
+                    method: "post",
+                    data: {action: "addTask", taskName: input},
+                    success: function (response) {
 
-                       if (response == '1') {
+                        if (response == '1') {
 
-                           $('.task-list').append('');
 
-                       } else {
-                           alert(response);
-                       }
+                            $('.task-list').append('');
+                            document.getElementById('addTaskInput').value = '';
+                        } else {
+                            alert(response);
+                        }
 
-                   }
+                    }
 
-               });
-           }
+                });
+            }
 
         });
-
 
 
     });

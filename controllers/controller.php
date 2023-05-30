@@ -20,7 +20,7 @@ switch ($_POST['action']) {
         echo addFolder($_POST['folderName']);
         break;
     case "addTask":
-        if (!isset($_POST['taskName']) || strlen($_POST['taskName']) < 3) {
+        if (!isset($_POST['taskName']) || strlen($_POST['taskName']) < 10) {
             echo "Task name must be greater than 10 chars.";
             die();
         }
