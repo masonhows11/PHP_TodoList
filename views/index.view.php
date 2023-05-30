@@ -38,6 +38,7 @@
 
                     <div class="mb-3 mt-3">
                         <ul class="list-group folder-list">
+                            <li class="list-group-item px-2 active"><i class="fa fa-folder px-2"></i>All</a></li>
                             <?php foreach ($folders as $folder): ?>
                                 <li class="list-group-item px-2">
                                     <a href="?folder_id=<?php echo $folder->id ?>"><i
@@ -51,9 +52,6 @@
                         </ul>
                     </div>
 
-                    <div class="mb-3 mt-3 px-2">
-                        ALL
-                    </div>
 
                     <div class="mb-3 mt-3">
                         <input type="text" id="addFolderInput" class="form-control" placeholder="Add New Folder">
