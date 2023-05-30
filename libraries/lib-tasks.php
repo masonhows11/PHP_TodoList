@@ -37,8 +37,13 @@ function getFolders()
 function getTasks()
 {
     global $pdo;
+    $folder = $_GET['folder_id'] ?? null ;
+    $folderCondition  = '';
+    if(isset($folder)and is_numeric($folder)){
+        $folderCondition = "and folder_id = $folder";
+    }
     $current_user_id = getCurrentUserId();
-    $sql = "select * from tasks where user_id = $current_user_id";
+    $sql = "select * from tasks where user_id = $current_user_id  $folderCondition";
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
     // get all tasks records as object type
