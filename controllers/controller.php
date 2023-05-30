@@ -13,14 +13,18 @@ if (!isset($_POST['action']) || empty($_POST['action'])) {
 switch ($_POST['action']) {
 
     case "addFolder":
-        if(!isset($_POST['folderName']) || strlen($_POST['folderName']) < 3){
+        if (!isset($_POST['folderName']) || strlen($_POST['folderName']) < 3) {
             echo "Folder name must be greater than 2 chars.";
-             die();
+            die();
         }
         echo addFolder($_POST['folderName']);
         break;
     case "addTask":
-
+        if (!isset($_POST['taskName']) || strlen($_POST['taskName']) < 3) {
+            echo "Task name must be greater than 10 chars.";
+            die();
+        }
+        echo addTask($_POST['taskName']);
         break;
     default:
         diePage("Invalid Action !");

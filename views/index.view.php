@@ -45,9 +45,10 @@
                             <?php foreach ($folders as $folder): ?>
 
 
-                                <li class="<?= isset($_GET['folder_id'])  ? (($_GET['folder_id'] == $folder->id) ? 'active' : '' ) : ''  ?> list-group-item px-2">
+                                <li class="<?= isset($_GET['folder_id']) ? (($_GET['folder_id'] == $folder->id) ? 'active' : '') : '' ?> list-group-item px-2">
 
-                                    <a href="?folder_id=<?= $folder->id ?>"><i class="fa fa-folder px-2"></i><?= $folder->name ?></a>
+                                    <a href="?folder_id=<?= $folder->id ?>"><i
+                                                class="fa fa-folder px-2"></i><?= $folder->name ?></a>
 
                                     <a class="remove"
                                        onclick="return confirm('Are you sure to delete this item\n <?= $folder->name ?>')"
@@ -94,7 +95,7 @@
 
                     <div class="task-content row mt-5">
                         <div class="col-lg-12">
-                            <ul class="list-group">
+                            <ul class="list-group task-list">
 
                                 <?php if (sizeof($tasks) > 0): ?>
 
@@ -162,53 +163,37 @@
             });
         });
 
+        // for add taks with ajax
+        $('#addTaskInput').on('keypress',function (e) {
+           if(e.which == 13 ){
+               let input = document.getElementById('addTaskInput').value;
+               $.ajax({
+                   url: "controllers/controller.php",
+                   method: "post",
+                   data: {action: "addTask", taskName: input},
+                   success: function (response) {
 
-        // $('.isDone').click(function(e){
-        //     var tid = $(this).attr('data-taskId');
-        //     $.ajax({
-        //         url : "process/ajaxHandler.php",
-        //         method : "post",
-        //         data : {action: "doneSwitch",taskId : tid},
-        //         success : function(response){
-        //             location.reload();
-        //         }
-        //     });
-        // });
+                       if (response == '1') {
 
-        // $('#addFolderBtn').click(function(e){
-        //     var input = $('input#addFolderInput');
-        //     $.ajax({
-        //         url : "process/ajaxHandler.php",
-        //         method : "post",
-        //         data : {action: "addFolder",folderName: input.val()},
-        //         success : function(response){
-        //             if(response == '1'){
-        //                 $('<li> <a href="#"><i class="fa fa-folder"></i>'+input.val()+'</a></li>').appendTo('ul.folder-list');
-        //             }else{
-        //                 alert(response);
-        //             }
-        //         }
-        //     });
-        // });
+                           $('.task-list').append('<li class="list-group-item d-flex justify-content-between"> +' +
+                               ' <div> <i class="fa-regular fa-square fa-lg"></i> <span> +'input'+</span> </div> +' +
+                               ' <div class="info">' +
+                               ' <span> </span> <a class="remove" href="?delete_task=" onclick="return confirm('Are you sure to delete this item?\n task one')">+' +
+                               ' <i class="fa fa-trash  px-2"></i> </a> </div> </li>');
 
-        //$('#taskNameInput').on('keypress',function(e) {
-        //    e.stopPropagation();
-        //    if(e.which == 13) {
-        //        $.ajax({
-        //            url : "process/ajaxHandler.php",
-        //            method : "post",
-        //            data : {action: "addTask",folderId : <?//= $_GET['folder_id'] ?? 0 ?>// ,taskTitle: $('#taskNameInput').val()},
-        //            success : function(response){
-        //                if(response == '1'){
-        //                    location.reload();
-        //                }else{
-        //                    alert(response);
-        //                }
-        //            }
-        //        });
-        //    }
-        //});
-        //$('#taskNameInput').focus();
+                       } else {
+                           alert(response);
+                       }
+
+                   }
+
+               });
+           }
+
+        });
+
+
+
     });
 
 </script>
