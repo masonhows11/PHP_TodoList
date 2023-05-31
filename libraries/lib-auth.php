@@ -26,9 +26,9 @@ function login($email, $password)
 function register($params)
 {
     global $pdo;
-
+    $pass = password_hash($params['password'], PASSWORD_BCRYPT);
     $sql = "insert into users (name,email,password) VALUES (:name,:email,:password);";
     $stmt = $pdo->prepare($sql);
-    $stmt->execute([':name' => $params['name'], ':email' => $params['email'], ':password' => $params['password']]);
+    $stmt->execute([':name' => $params['name'], ':email' => $params['email'], ':password' => $pass]);
     return $stmt->rowCount() ? true : false;
 }

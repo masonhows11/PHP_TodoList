@@ -15,13 +15,16 @@ function diePage($msg)
     die();
 }
 
-function message($msg){
-    echo "<div style='padding: 50px;margin: 0 auto;background: deepskyblue;width: 80%;border: 1px solid dodgerblue;border-radius:10px;font-family:sans-serif'>
-    <p style='text-align: center'>$msg</p>
-    </div>";
+function message($msg)
+{
+    echo "<div class='alert alert-primary' role='alert'>";
+    echo "<p style='text-align:center'>$msg</p>";
+    echo "</div>";
 }
+
 function dd($msg)
 {
+
     echo "<pre style='color:#9c4100;background: #ffffff;z-index: 999;position:relative;padding: 10px;margin: 10px;border-radius: 5px'>";
     var_dump($msg);
     echo "</pre>";
@@ -37,5 +40,5 @@ function isAjaxRequest()
 
 function site_uri($uri = '')
 {
-    return BASE_URL .'/'. $uri;
+    return BASE_URL . '/' . $uri;
 }
