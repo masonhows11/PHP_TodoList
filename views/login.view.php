@@ -18,8 +18,8 @@
             <form action="<?= site_uri('login.php?action=login') ?>" method="post">
 
                 <div class="mb-3">
-                    <label for="name" class="form-label">User name</label>
-                    <input type="text" name="name" required="required" class="form-control" id="name">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" name="email" required="required" class="form-control" id="email">
                 </div>
 
                 <div class="mb-3">

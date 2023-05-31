@@ -13,12 +13,12 @@ function isLoggedIn()
 }
 
 
-function login($user, $password)
+function login($email, $password)
 {
-
+        return 1;
 }
 
 function register($userData)
 {
-
+    return 1;
 }
