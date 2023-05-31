@@ -3,4 +3,4 @@
 
 include "bootstrap/init.php";
 
-include  "views/auth.view.php";
+include "views/register.view.php";

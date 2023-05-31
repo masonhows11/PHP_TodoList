@@ -134,6 +134,7 @@
 
         </div>
     </div>
+
 </div>
 <!-- partial -->
 <script src='<?= BASE_URL ?>/assets/js/jquery-3.5.1.min.js'></script>
