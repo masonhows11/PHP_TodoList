@@ -192,11 +192,7 @@
                 method: "post",
                 data: {action: "doneStatus", taskId: taskId},
                 success: function (response) {
-                    if (response == '1') {
-                        location.reload();
-                    } else {
-                        alert(response);
-                    }
+                    location.reload();
                 }
             });
         });

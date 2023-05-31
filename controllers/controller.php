@@ -18,7 +18,7 @@ switch ($_POST['action']) {
             echo "The task id not valid";
             die();
         }
-        changeTaskStatus($taskId);
+        echo changeTaskStatus($taskId);
         break;
     case "addFolder":
         if (!isset($_POST['folderName']) || strlen($_POST['folderName']) < 3) {
