@@ -48,7 +48,7 @@
 
                                 <li class="<?= isset($_GET['folder_id']) ? (($_GET['folder_id'] == $folder->id) ? 'active' : '') : '' ?> list-group-item px-2">
 
-                                    <a href="<?= site_uri("?folder_id= $folder->id")  ?>"><i
+                                    <a href="<?= site_uri("?folder_id= $folder->id") ?>"><i
                                                 class="fa fa-folder px-2"></i><?= $folder->name ?></a>
 
                                     <a class="remove"
@@ -103,7 +103,8 @@
                                     <?php foreach ($tasks as $task): ?>
                                         <li class="list-group-item d-flex justify-content-between <?= $task->status == 0 ? '' : 'active'; ?>">
                                             <div>
-                                                <i class="fa-regular <?= $task->status ? 'fa-square-check fa-lg' : 'fa-square fa-lg'; ?>"></i>
+                                                <i data-taskId="<?= $task->id ?>"
+                                                   class="isDone fa-regular <?= $task->status ? 'fa-square-check fa-lg' : 'fa-square fa-lg'; ?>"></i>
                                                 <span><?= $task->title ?></span>
                                             </div>
                                             <div class="info">
@@ -158,7 +159,6 @@
                 }
             });
         });
-
         // for add taks with ajax
         $('#addTaskInput').on('keypress', function (e) {
             if (e.which == 13) {
@@ -184,6 +184,22 @@
         });
         $('#addTaskInput').focus();
 
+        // for make complete task with ajax
+        $('.isDone').click(function (e) {
+            let taskId = $(this).attr('data-taskId');
+            $.ajax({
+                url: "controllers/controller.php",
+                method: "post",
+                data: {action: "doneStatus", taskId: taskId},
+                success: function (response) {
+                    if (response == '1') {
+                        location.reload();
+                    } else {
+                        alert(response);
+                    }
+                }
+            });
+        });
     });
 
 </script>
