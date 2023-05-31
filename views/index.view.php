@@ -39,15 +39,16 @@
                     <div class="mb-3 mt-3">
                         <ul class="list-group folder-list">
                             <!--   this line ok   -->
-                            <li class="list-group-item px-2 <?= isset($_GET['folder_id']) ? '' : 'active' ?>"><i
-                                        class="fa fa-folder px-2"></i>All</a></li>
+                            <li class="list-group-item px-2 <?= isset($_GET['folder_id']) ? '' : 'active' ?>">
+                                <a href="<?= site_uri() ?>"><i class="fa fa-folder px-2"></i>All</a>
+                            </li>
 
                             <?php foreach ($folders as $folder): ?>
 
 
                                 <li class="<?= isset($_GET['folder_id']) ? (($_GET['folder_id'] == $folder->id) ? 'active' : '') : '' ?> list-group-item px-2">
 
-                                    <a href="?folder_id=<?= $folder->id ?>"><i
+                                    <a href="<?= site_uri("?folder_id= $folder->id")  ?>"><i
                                                 class="fa fa-folder px-2"></i><?= $folder->name ?></a>
 
                                     <a class="remove"
@@ -108,7 +109,7 @@
                                             <div class="info">
                                                 <span><?= $task->created_at ?></span>
                                                 <a class="remove"
-                                                   href="?delete_task=<?php echo $task->id ?>"
+                                                   href="<?= site_uri() ?>?delete_task=<?php echo $task->id ?>"
                                                    onclick="return confirm('Are you sure to delete this item?\n <?= $task->title ?>')">
                                                     <i class="fa fa-trash  px-2"></i>
                                                 </a>
