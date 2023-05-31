@@ -13,31 +13,26 @@
 
     <div class="row d-flex justify-content-center">
         <div class="col-lg-6">
-            <form>
 
+
+            <form action="<?= site_uri('login.php?action=login') ?>" method="post">
 
                 <div class="mb-3">
                     <label for="name" class="form-label">User name</label>
-                    <input type="text" class="form-control" id="name">
-                </div>
-
-                <div class="mb-3">
-                    <label for="email" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="email">
+                    <input type="text" name="name" required="required" class="form-control" id="name">
                 </div>
 
                 <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="password">
+                    <input type="password" name="password" required="required" class="form-control" id="password">
                 </div>
 
                 <div class="mb-3 d-flex justify-content-between">
                     <button type="submit" class="btn btn-primary">login</button>
                     <a href="<?= site_uri('register.php') ?>" class="btn btn-primary">register</a>
-
                 </div>
-
             </form>
+
         </div>
     </div>
 
