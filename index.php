@@ -6,7 +6,7 @@ include  "bootstrap/init.php";
 
 if(!isLoggedIn()){
 
-    header("Location:" . site_uri('register.php'));
+    header("Location:" . site_uri('login.php'));
 }
 
 if(isset($_GET['delete_folder']) && is_numeric($_GET['delete_folder'])){

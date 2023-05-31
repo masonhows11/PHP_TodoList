@@ -2,7 +2,7 @@
 <html lang="en" >
 <head>
     <meta charset="UTF-8">
-    <title>Login / Register</title>
+    <title>Login</title>
     <link rel="stylesheet" href="<?= BASE_URL ?>/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>/assets/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>/assets/css/style.css">
@@ -31,7 +31,12 @@
                     <input type="password" class="form-control" id="password">
                 </div>
 
-                <button type="submit" class="btn btn-primary">login</button>
+                <div class="mb-3 d-flex justify-content-between">
+                    <button type="submit" class="btn btn-primary">login</button>
+                    <a href="<?= site_uri('register.php') ?>" class="btn btn-primary">register</a>
+
+                </div>
+
             </form>
         </div>
     </div>
