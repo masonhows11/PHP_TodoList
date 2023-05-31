@@ -73,9 +73,9 @@ function deleteTask($task_id)
 function changeTaskStatus($taskId){
     global $pdo;
     $current_user_id = getCurrentUserId();
-    $sql = "select * from folders where user_id = $current_user_id";
+    $sql = "update task set status = 1 - status where user_id = :userId and id = :taskId";
     $stmt = $pdo->prepare($sql);
-    $stmt->execute();
+    $stmt->execute([':taskId'=>$taskId,':userId'=>$current_user_id]);
     // get all folder records as object type
     $records = $stmt->fetchAll(PDO::FETCH_OBJ);
     return $records;
