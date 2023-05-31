@@ -20,7 +20,7 @@ function login($email, $password)
     $sql = "select * from users where email=':email' and password=':password' ";
     $stmt = $pdo->prepare($sql);
     $stmt->execute([':email' => $email, ':password' => $password]);
-    return $stmt->rowCount();
+    return $stmt->rowCount() ? true : false;
 }
 
 function register($params)
@@ -30,5 +30,5 @@ function register($params)
     $sql = "insert into users (name,email,password) VALUES (:name,:email,:password);";
     $stmt = $pdo->prepare($sql);
     $stmt->execute([':name' => $params['name'], ':email' => $params['email'], ':password' => $params['password']]);
-    return $stmt->rowCount();
+    return $stmt->rowCount() ? true : false;
 }

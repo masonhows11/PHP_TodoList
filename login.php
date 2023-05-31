@@ -8,7 +8,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $params = $_POST;
     if ($action = 'login') {
         $result = login($params['email'], $params['password']);
-        dd($result);
+        if (!$result) {
+            message('login failed');
+        }
     }
 }
 
