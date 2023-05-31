@@ -10,6 +10,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $result = register($params);
         if (!$result) {
             message('register failed : error in registration !');
+        }else{
+            message('register successfully');
         }
     }
 }
