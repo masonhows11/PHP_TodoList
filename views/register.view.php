@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Register</title>
-    <link rel="stylesheet" href="<?= BASE_URL ?>/assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="<?= BASE_URL ?>/assets/fontawesome/css/all.min.css">
-    <link rel="stylesheet" href="<?= BASE_URL ?>/assets/css/style.css">
+    <link rel="stylesheet" href="<?= site_uri('assets/css/bootstrap.min.css') ?>">
+    <link rel="stylesheet" href="<?= site_uri('assets/fontawesome/css/all.min.css') ?>">
+    <link rel="stylesheet" href="<?= site_uri('assets/css/style.css') ?>">
 </head>
 <body>
 <!-- partial:index.partial.html -->
@@ -39,9 +39,9 @@
 
 </div>
 <!-- partial -->
-<script src='<?= BASE_URL ?>/assets/js/jquery-3.5.1.min.js'></script>
-<script src='<?= BASE_URL ?>/assets/js/bootstrap.bundle.min.js'></script>
-<script src="<?= BASE_URL ?>/assets/js/script.js"></script>
+<script src='<?= site_uri('assets/js/jquery-3.5.1.min.js') ?>'></script>
+<script src='<?= site_uri('assets/js/bootstrap.bundle.min.js') ?>'></script>
+<script src='<?= site_uri('assets/js/script.js') ?>'></script>
 
 </body>
 </html>
