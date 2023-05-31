@@ -150,7 +150,7 @@
                 data: {action: "addFolder", folderName: input},
                 success: function (response) {
                     if (response == '1') {
-                        $('.folder-list').append('<li class="list-group-item px-2"> <a href="?folder_id=14"><i class="fa fa-folder px-2"></i>' + input + '</a> <a class="remove" href="?delete_folder=14"><i class="fa fa-trash  px-2"></i>remove</a> </li>');
+                        location.reload();
                     } else {
                         alert(response);
                     }
