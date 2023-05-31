@@ -15,10 +15,20 @@ function isLoggedIn()
 
 function login($email, $password)
 {
-        return 1;
+    global $pdo;
+
+    $sql = "select * from users where email=':email' and password=':password' ";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([':email' => $email, ':password' => $password]);
+    return $stmt->rowCount();
 }
 
-function register($userData)
+function register($params)
 {
-    return 1;
+    global $pdo;
+
+    $sql = "insert into users (name,email,password) VALUES (:name,:email,:password);";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([':name' => $params['name'], ':email' => $params['email'], ':password' => $params['password']]);
+    return $stmt->rowCount();
 }
