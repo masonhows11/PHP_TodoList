@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($action = 'login') {
         $result = login($params['email'], $params['password']);
         if (!$result) {
-            message('login failed');
+            message('login failed : email or password is incorrect');
         }
     }
 }
