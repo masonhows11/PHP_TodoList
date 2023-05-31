@@ -12,6 +12,14 @@ if (!isset($_POST['action']) || empty($_POST['action'])) {
 
 switch ($_POST['action']) {
 
+    case "doneStatus":
+        $taskId = $_POST['taskId'];
+        if (!isset($taskId)  || !is_numeric($taskId)) {
+            echo "The task id not valid";
+            die();
+        }
+        changeTaskStatus($_POST['']);
+        break;
     case "addFolder":
         if (!isset($_POST['folderName']) || strlen($_POST['folderName']) < 3) {
             echo "Folder name must be greater than 2 chars.";
@@ -22,7 +30,6 @@ switch ($_POST['action']) {
     case "addTask":
         $taskName = $_POST['taskName'];
         $folderId = $_POST['folderId'];
-
         if (!isset($folderId) || empty($folderId) || !is_numeric($folderId)) {
             echo "please select folder !";
             die();
