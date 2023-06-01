@@ -16,17 +16,19 @@ function getUserByEmail($email)
 {
 
     global $pdo;
-    $sql = "select * from users where email=':email'";
+    $sql = "SELECT * FROM users WHERE email= :email";
     $stmt = $pdo->prepare($sql);
     $stmt->execute([':email' => $email]);
-    return $stmt->rowCount() ? true : false;
+    // get array of object from result of query
+    $records = $stmt->fetchAll(PDO::FETCH_OBJ);
+    return $records[0] ?? null;
 }
 
 
 function login($email)
 {
-
     $user = getUserByEmail($email);
+    dd($user);
     return 1;
 
 }
