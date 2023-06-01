@@ -11,13 +11,11 @@ function logOut()
 {
     // for delete session with name login
     unset($_SESSION['login']);
-
 }
 
 function isLoggedIn()
 {
     return isset($_SESSION['login']) ? true : false;
-
 }
 
 function getLoggedInUser()
@@ -27,7 +25,6 @@ function getLoggedInUser()
 
 function getUserByEmail($email)
 {
-
     global $pdo;
     $sql = "SELECT * FROM users WHERE email= :email";
     $stmt = $pdo->prepare($sql);
