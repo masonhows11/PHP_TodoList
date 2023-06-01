@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             message('register failed : error in registration !','warning');
         }else{
             message("register successfully .<br/>
-                    <a href='$home_url/login.php'>Please login</a>",'success');
+                    <a href='{$home_url}login.php'>Please login</a>",'success');
         }
     }
 }
