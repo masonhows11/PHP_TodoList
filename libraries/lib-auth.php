@@ -12,15 +12,23 @@ function isLoggedIn()
 
 }
 
-
-function login($email, $password)
+function getUserByEmail($email)
 {
-    global $pdo;
 
-    $sql = "select * from users where email=':email' and password=':password' ";
+    global $pdo;
+    $sql = "select * from users where email=':email'";
     $stmt = $pdo->prepare($sql);
-    $stmt->execute([':email' => $email, ':password' => $password]);
+    $stmt->execute([':email' => $email]);
     return $stmt->rowCount() ? true : false;
+}
+
+
+function login($email)
+{
+
+    $user = getUserByEmail($email);
+    return 1;
+
 }
 
 function register($params)
