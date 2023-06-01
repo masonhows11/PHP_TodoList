@@ -15,7 +15,7 @@ function diePage($msg)
     die();
 }
 
-function message($msg,$status)
+function message($msg, $status)
 {
     echo "<div class='alert alert-$status' style='z-index:3' role='alert'>";
     echo "<p class='text-center'>$msg</p>";
@@ -41,4 +41,10 @@ function isAjaxRequest()
 function site_uri($uri = '')
 {
     return BASE_URL . $uri;
+}
+
+function redirect($url)
+{
+    header("Location: $url");
+    die();
 }

@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         } else {
         //            message("login successfully .<br/>
         //                    <a href='{$home_url}'>Manage Your Tasks</a>",'success');
-
+        redirect(site_uri());
         }
     }
 }
