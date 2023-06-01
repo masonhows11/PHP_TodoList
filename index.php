@@ -9,7 +9,8 @@ if(isset($_GET['logout'])){
 
 if(!isLoggedIn()){
 
-    header("Location:" . site_uri('login.php'));
+    //    header("Location:" . site_uri('login.php'));
+    redirect();
 }
 
 if(isset($_GET['delete_folder']) && is_numeric($_GET['delete_folder'])){

@@ -11,8 +11,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (!$result) {
             message('Login Failed : Email or password is incorrect','warning');
         } else {
-            message("login successfully .<br/>
-                    <a href='{$home_url}'>Manage Your Tasks</a>",'success');
+        //            message("login successfully .<br/>
+        //                    <a href='{$home_url}'>Manage Your Tasks</a>",'success');
 
         }
     }

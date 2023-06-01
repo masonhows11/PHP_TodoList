@@ -8,7 +8,6 @@ function getCurrentUserId()
 
 
 function logOut(){
-
     // for delete session with name login
     unset($_SESSION['login']);
 
