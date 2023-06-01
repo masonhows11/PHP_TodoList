@@ -8,7 +8,7 @@ function getCurrentUserId()
 
 function isLoggedIn()
 {
-    return false;
+    return isset($_SESSION['login']) ? true : false ;
 
 }
 
@@ -32,6 +32,8 @@ function login($email, $pass)
         return false;
     }
     if (password_verify($pass, $user->password)) {
+        // for check is user login or not
+        // we use session global array
         $_SESSION['login'] = $user;
         return true;
     }

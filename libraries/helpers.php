@@ -40,5 +40,5 @@ function isAjaxRequest()
 
 function site_uri($uri = '')
 {
-    return BASE_URL . '/' . $uri;
+    return BASE_URL . $uri;
 }
