@@ -19,7 +19,14 @@
         </div>
 
         <div class="my-2 col-lg-6 d-flex align-items-center justify-content-end">
-            <div class="px-2"><?= getLoggedUser()->name ?? 'No user logged in' ?></div>
+            <div class="dropdown px-2">
+                <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <?= getLoggedUser()->name ?? 'No user logged in' ?>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">LogOut</a></li>
+                </ul>
+            </div>
             <img src="<?= BASE_URL ?>/assets/img/person.jpg" class="rounded  user-image" alt>
         </div>
 
