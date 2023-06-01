@@ -8,8 +8,13 @@ function getCurrentUserId()
 
 function isLoggedIn()
 {
-    return isset($_SESSION['login']) ? true : false ;
+    return isset($_SESSION['login']) ? true : false;
 
+}
+
+function getLoggedUser()
+{
+    return $_SESSION['login'] ?? null;
 }
 
 function getUserByEmail($email)

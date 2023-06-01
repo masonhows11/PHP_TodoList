@@ -18,7 +18,8 @@
             <h4 class=" text-white">Dashboard</h4>
         </div>
 
-        <div class="my-2 col-lg-6 d-flex justify-content-end">
+        <div class="my-2 col-lg-6 d-flex align-items-center justify-content-end">
+            <div class="px-2"><?= getLoggedUser()->name ?? 'No user logged in' ?></div>
             <img src="<?= BASE_URL ?>/assets/img/person.jpg" class="rounded  user-image" alt>
         </div>
 
