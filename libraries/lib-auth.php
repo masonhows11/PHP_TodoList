@@ -32,6 +32,7 @@ function login($email, $pass)
         return false;
     }
     if (password_verify($pass, $user->password)) {
+        $_SESSION['login'] = $user;
         return true;
     }
     return false;
