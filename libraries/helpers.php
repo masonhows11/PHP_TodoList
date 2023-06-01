@@ -17,8 +17,8 @@ function diePage($msg)
 
 function message($msg,$status)
 {
-    echo "<div class='alert alert-$status' style='z-index:999' role='alert'>";
-    echo "<p style='text-align:center'>$msg</p>";
+    echo "<div class='alert alert-$status' style='z-index:3' role='alert'>";
+    echo "<p class='text-center'>$msg</p>";
     echo "</div>";
 }
 

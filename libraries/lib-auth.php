@@ -31,6 +31,8 @@ function login($email)
     if (is_null($user)) {
         return false;
     }
+    
+
     return true;
 
 }
