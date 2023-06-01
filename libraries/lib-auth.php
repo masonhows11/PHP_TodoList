@@ -25,15 +25,16 @@ function getUserByEmail($email)
 }
 
 
-function login($email)
+function login($email, $pass)
 {
     $user = getUserByEmail($email);
     if (is_null($user)) {
         return false;
     }
-    
-
-    return true;
+    if (password_verify($pass, $user->password)) {
+        return true;
+    }
+    return false;
 
 }
 
