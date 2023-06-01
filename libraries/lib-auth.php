@@ -28,8 +28,10 @@ function getUserByEmail($email)
 function login($email)
 {
     $user = getUserByEmail($email);
-    dd($user);
-    return 1;
+    if (is_null($user)) {
+        return false;
+    }
+    return true;
 
 }
 
