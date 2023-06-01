@@ -21,7 +21,7 @@
         <div class="my-2 col-lg-6 d-flex align-items-center justify-content-end">
             <div class="dropdown px-2">
                 <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <?= getLoggedUser()->name ?? 'No user logged in' ?>
+                    <?= getLoggedInUser()->name ?? 'No user logged in' ?>
                 </button>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="<?= site_uri("?logout=1") ?>">LogOut</a></li>

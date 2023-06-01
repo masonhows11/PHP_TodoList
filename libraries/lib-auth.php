@@ -3,22 +3,24 @@ defined('BASE_PATH') or die("Permission Denied!");
 
 function getCurrentUserId()
 {
-    return 1;
+    return getLoggedInUser()->id ?? 0;
 }
 
 
-function logOut(){
+function logOut()
+{
     // for delete session with name login
     unset($_SESSION['login']);
 
 }
+
 function isLoggedIn()
 {
     return isset($_SESSION['login']) ? true : false;
 
 }
 
-function getLoggedUser()
+function getLoggedInUser()
 {
     return $_SESSION['login'] ?? null;
 }
