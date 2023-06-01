@@ -6,6 +6,13 @@ function getCurrentUserId()
     return 1;
 }
 
+
+function logOut(){
+
+    // for delete session with name login
+    unset($_SESSION['login']);
+
+}
 function isLoggedIn()
 {
     return isset($_SESSION['login']) ? true : false;
@@ -55,3 +62,4 @@ function register($params)
     $stmt->execute([':name' => $params['name'], ':email' => $params['email'], ':password' => $pass]);
     return $stmt->rowCount() ? true : false;
 }
+

@@ -3,6 +3,9 @@
 
 include  "bootstrap/init.php";
 
+if(isset($_GET['logout'])){
+    logOut();
+}
 
 if(!isLoggedIn()){
 

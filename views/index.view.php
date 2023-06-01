@@ -24,7 +24,7 @@
                     <?= getLoggedUser()->name ?? 'No user logged in' ?>
                 </button>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">LogOut</a></li>
+                    <li><a class="dropdown-item" href="<?= site_uri("?logout=1") ?>">LogOut</a></li>
                 </ul>
             </div>
             <img src="<?= BASE_URL ?>/assets/img/person.jpg" class="rounded  user-image" alt>
